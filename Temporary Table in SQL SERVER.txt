@@ -1,0 +1,72 @@
+--CREATE TABLE #Person (ID Int, Name VARCHAR(100), position VARCHAr(100) )
+
+-- SQL SERVER appends some random numbers at the end of the local temp table name
+-- SCOPE is specific to the session of the SQL server which has created it.
+
+--SELECT * FROm tempdb..sysobjects where name like '%Person%'
+
+--DROP TABLE #Person
+
+--Stored Procedures
+
+--If the temporary  table, is created inside the stored procedure, it get's dropped automatically upon the completion of stored procedure execution,
+--And is possible with the two user connections
+
+
+--CREATE PROCEDURE GetPersonsList
+--AS 
+--BEGIN
+
+--CREATE TABLE #Person (ID Int, Name VARCHAR(100), position VARCHAr(100) ) 
+
+--INSERT INTO #Person (ID,Name,position)
+--SELECT 1,'person1',100 UNION
+--SELECT 1,'person2',100 UNION
+--SELECT 1,'person3',100 UNION
+--SELECT 1,'person4',100 
+
+--SELECT * FROM #Person
+
+--END
+
+--EXEC GetPersonsList
+
+--Yo create a Global Temporary Table, prefix the name of the table with 2 pound(##) Symbols
+--unique name
+
+--CREATE TABLE ##Person (ID Int, Name VARCHAR(100), position VARCHAr(100) )
+
+--INSERT INTO ##Person (ID,Name,position)
+--SELECT 1,'person1',100 UNION
+--SELECT 1,'person2',100 UNION
+--SELECT 1,'person3',100 UNION
+--SELECT 1,'person4',100 
+
+--SELECT * FROM ##Person
+
+--DROP TABLE ##Person
+
+
+
+
+
+--CREATE PROCEDURE GetPersonsList
+--AS 
+--BEGIN
+
+----CREATE TABLE #Person (ID Int, Name VARCHAR(100), position VARCHAr(100) ) 
+
+--INSERT INTO #Person (ID,Name,position)
+--SELECT 1,'person1',100 UNION
+--SELECT 1,'person2',100 UNION
+--SELECT 1,'person3',100 UNION
+--SELECT 1,'person4',100 
+
+--SELECT * FROM #Person
+
+--END
+
+
+--CREATE TABLE #Person (ID Int, Name VARCHAR(100), position VARCHAr(100) )
+
+--EXEC GetPersonsList
